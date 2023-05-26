@@ -1,0 +1,11 @@
+Running test cases for ./a.out
+Sample 1            [0;32mPASSED[0m
+Sample 2            [0;31mFAILED[0m
+Test 3              [0;32mPASSED[0m
+Test 4              [0;32mPASSED[0m
+Test 5              [0;31mFAILED[0m
+Test 6              [0;32mPASSED[0m
+Test 7              [0;32mPASSED[0m
+Test 8              [0;32mPASSED[0m
+Passed              6/8
+2023-05-25 23:30:40

@@ -1,0 +1,6 @@
+/mnt/e/compiler_wjj/CMakeFiles/rebuild_cache.dir
+/mnt/e/compiler_wjj/CMakeFiles/Compiler.dir
+/mnt/e/compiler_wjj/CMakeFiles/acc_gen.dir
+/mnt/e/compiler_wjj/CMakeFiles/edit_cache.dir
+/mnt/e/compiler_wjj/CMakeFiles/omp_gen.dir
+/mnt/e/compiler_wjj/CMakeFiles/intrinsics_gen.dir

@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/mnt/e/compiler_wjj/build",
+  "command": "/usr/bin/c++   -I/usr/lib/llvm-14/include    -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++14 -o CMakeFiles/Compiler.dir/ast.cpp.o -c /mnt/e/compiler_wjj/ast.cpp",
+  "file": "/mnt/e/compiler_wjj/ast.cpp"
+},
+{
+  "directory": "/mnt/e/compiler_wjj/build",
+  "command": "/usr/bin/c++   -I/usr/lib/llvm-14/include    -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++14 -o CMakeFiles/Compiler.dir/parser.cpp.o -c /mnt/e/compiler_wjj/parser.cpp",
+  "file": "/mnt/e/compiler_wjj/parser.cpp"
+},
+{
+  "directory": "/mnt/e/compiler_wjj/build",
+  "command": "/usr/bin/c++   -I/usr/lib/llvm-14/include    -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++14 -o CMakeFiles/Compiler.dir/codegen.cpp.o -c /mnt/e/compiler_wjj/codegen.cpp",
+  "file": "/mnt/e/compiler_wjj/codegen.cpp"
+},
+{
+  "directory": "/mnt/e/compiler_wjj/build",
+  "command": "/usr/bin/c++   -I/usr/lib/llvm-14/include    -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++14 -o CMakeFiles/Compiler.dir/main.cpp.o -c /mnt/e/compiler_wjj/main.cpp",
+  "file": "/mnt/e/compiler_wjj/main.cpp"
+},
+{
+  "directory": "/mnt/e/compiler_wjj/build",
+  "command": "/usr/bin/c++   -I/usr/lib/llvm-14/include    -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++14 -o CMakeFiles/Compiler.dir/lexer.cpp.o -c /mnt/e/compiler_wjj/lexer.cpp",
+  "file": "/mnt/e/compiler_wjj/lexer.cpp"
+}
+]
