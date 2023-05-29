@@ -947,7 +947,7 @@ YY_RULE_SETUP
 case 35:
 YY_RULE_SETUP
 #line 49 "lexer.l"
-{ printf("Unknown token!\n"); std::cout<<yylval.string<<std::endl;}
+{ throw std::logic_error("Unknown token!\n"); std::cout<<yylval.string<<std::endl;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP

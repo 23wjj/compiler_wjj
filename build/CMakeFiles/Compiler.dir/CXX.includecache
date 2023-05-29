@@ -11,6 +11,8 @@ codegen.hpp
 /mnt/e/compiler_wjj/codegen.hpp
 parser.hpp
 /mnt/e/compiler_wjj/parser.hpp
+utils.cpp
+/mnt/e/compiler_wjj/utils.cpp
 
 /mnt/e/compiler_wjj/ast.hpp
 iostream
@@ -25,6 +27,10 @@ cstdio
 -
 cstring
 -
+
+/mnt/e/compiler_wjj/codegen.cpp
+codegen.hpp
+/mnt/e/compiler_wjj/codegen.hpp
 
 /mnt/e/compiler_wjj/codegen.hpp
 stack
@@ -50,7 +56,41 @@ llvm/ADT/StringRef.h
 ast.hpp
 /mnt/e/compiler_wjj/ast.hpp
 
+/mnt/e/compiler_wjj/lexer.cpp
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+inttypes.h
+-
+string
+-
+iostream
+-
+ast.hpp
+/mnt/e/compiler_wjj/ast.hpp
+parser.hpp
 /mnt/e/compiler_wjj/parser.hpp
+unistd.h
+-
+
+/mnt/e/compiler_wjj/main.cpp
+iostream
+-
+codegen.hpp
+/mnt/e/compiler_wjj/codegen.hpp
+
+/mnt/e/compiler_wjj/parser.hpp
+
+/mnt/e/compiler_wjj/utils.cpp
+ast.hpp
+/mnt/e/compiler_wjj/ast.hpp
+codegen.hpp
+/mnt/e/compiler_wjj/codegen.hpp
 
 /usr/lib/llvm-14/include/llvm-c/DataTypes.h
 inttypes.h

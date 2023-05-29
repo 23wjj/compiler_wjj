@@ -5,6 +5,7 @@ CMakeFiles/Compiler.dir/ast.cpp.o: ../ast.cpp
 CMakeFiles/Compiler.dir/ast.cpp.o: ../ast.hpp
 CMakeFiles/Compiler.dir/ast.cpp.o: ../codegen.hpp
 CMakeFiles/Compiler.dir/ast.cpp.o: ../parser.hpp
+CMakeFiles/Compiler.dir/ast.cpp.o: ../utils.cpp
 CMakeFiles/Compiler.dir/ast.cpp.o: /usr/lib/llvm-14/include/llvm-c/DataTypes.h
 CMakeFiles/Compiler.dir/ast.cpp.o: /usr/lib/llvm-14/include/llvm-c/Error.h
 CMakeFiles/Compiler.dir/ast.cpp.o: /usr/lib/llvm-14/include/llvm-c/ExternC.h

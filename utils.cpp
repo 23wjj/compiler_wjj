@@ -1,17 +1,17 @@
-#include <llvm/IR/BasicBlock.h>
-#include <llvm/ADT/ArrayRef.h>
-#include <llvm/IR/Constants.h>
-#include <llvm/IR/Function.h>
-#include <llvm/IR/InstrTypes.h>
-#include <llvm/IR/Instruction.h>
-#include <llvm/IR/Instructions.h>
-#include <llvm/IR/Type.h>
-#include <llvm/IR/Value.h>
-#include <string>
-#include "codegen.hpp"
 #include "ast.hpp"
-using namespace llvm;
+#include "codegen.hpp"
 
+using namespace llvm;
+Instruction::CastOps type_inst(Type* src, Type* dst){
+    if(src==Type::getInt8Ty(global_ctx) && dst==Type::getInt32Ty(global_ctx))
+        return Instruction::ZExt;
+    throw std::logic_error("Wrong typecast");
+}
+
+Value* type_convert(Value* src, Type* dst){
+    Instruction::CastOps op = type_inst(src->getType(), dst);
+    return builder.CreateCast(op, src, dst, "typeconvert");
+}
 Type* get_type(std::string type, bool is_array, int array_size=0){
     if (is_array){
         if (type=="int")
@@ -35,33 +35,6 @@ Type* get_type(std::string type, bool is_array, int array_size=0){
     }
     return nullptr;
 }
-Function* printf_prototype(CodeGenContext &ctx){
-    std::vector<Type*> printf_arg_types;
-    printf_arg_types.push_back(builder.getInt8PtrTy());
-
-    FunctionType* printf_type = FunctionType::get(builder.getInt32Ty(),
-                                                  printf_arg_types,
-                                                  true);
-
-    Function *func = Function::Create(
-            printf_type, Function::ExternalLinkage,
-            Twine("printf"),
-            ctx.module
-    );
-    func->setCallingConv(llvm::CallingConv::C);
-    return func;
-}
-
-Function* scanf_prototype(CodeGenContext &ctx){
-    FunctionType* scanf_type = FunctionType::get(builder.getInt32Ty(), true);
-    Function *func = Function::Create(
-            scanf_type, Function::ExternalLinkage,
-            Twine("scanf"),
-            ctx.module
-    );
-    func->setCallingConv(llvm::CallingConv::C);
-    return func;
-}
 
 
 Value* printf_gen(CodeGenContext &ctx, ExpressionList args){
@@ -73,7 +46,7 @@ Value* printf_gen(CodeGenContext &ctx, ExpressionList args){
         if (tmp!=nullptr)
             printf_args->push_back(tmp);
     }
-    Function* printf = printf_prototype(ctx);
+    Function* printf = ctx.printf;
     return builder.CreateCall(printf, *printf_args, "printf");
 }
 
@@ -83,7 +56,6 @@ Value* scanf_gen(CodeGenContext &ctx, ExpressionList args){
         Value* tmp = ite->CodeGen(ctx);
         scanf_args->push_back(tmp);
     }
-    Function* scanf = scanf_prototype(ctx);
+    Function* scanf = ctx.scanf;
     return builder.CreateCall(scanf, *scanf_args, "scanf");
 }
-

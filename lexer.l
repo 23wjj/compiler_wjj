@@ -46,6 +46,6 @@ extern "C" int yywrap() {return 1;}
 ["].*["]	            SAVE_TOKEN; return STRING;
 "\'"[^\\']"\'"	        SAVE_TOKEN; return CHARACTER;
 [ \t\n]                 { ;}
-.                       { printf("Unknown token!\n"); std::cout<<yylval.string<<std::endl;}
+.                       { throw std::logic_error("Unknown token!\n"); std::cout<<yylval.string<<std::endl;}
 
 %%

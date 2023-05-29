@@ -1,13 +1,6 @@
-int f(int m, int n){
-    m=1;
-    printf("%d\n",m);
-    return 0;
-}
-
 int main(){
-    char a;
+    char ^a;
+    int c=1;
     scanf("%c",&a);
-    f(a);
-
     return 0;
 }

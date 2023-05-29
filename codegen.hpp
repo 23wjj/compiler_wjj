@@ -1,3 +1,7 @@
+#ifndef _CODEGEN_H_
+
+#define _CODEGEN_H_
+
 #include <stack>
 #include <map>
 #include <string>
@@ -83,3 +87,5 @@ public:
     void insert_break(llvm::BasicBlock*);
 
 };
+
+#endif
