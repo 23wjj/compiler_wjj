@@ -14,6 +14,8 @@
     // extern int yylineno;
 %}
 
+%define parse.error verbose
+
 %union{
     Block *block_type;
     Expression *expr_type;
@@ -102,6 +104,12 @@ stmt : var_decl SEMI {
        }|
        WHILE LPAREN expr RPAREN block {
             $$ = new WhileStatement($3, $5);
+       }|
+       WHILE error RPAREN {
+            yyerror("PAREN not match in while condition!\n");
+       }|
+       IF error RPAREN block{
+            yyerror("PAREN not match in if condition!\n");
        };
 
 
@@ -111,6 +119,9 @@ block : LBRACE stmts RBRACE {
         }|
         LBRACE RBRACE{
             $$ = new Block();
+        }|
+        LBRACE error{
+            yyerror("BRACE not match in block!\n");
         };
 
 var_decl : identifier identifier{
@@ -126,6 +137,9 @@ var_decl : identifier identifier{
 func_decl : identifier identifier LPAREN decl_args RPAREN block{
                 $$ = new FunctionDeclaration(*$1, *$2, *$4, *$6);
                 std::printf("funcdecl\n");
+            }|
+            identifier identifier error RPAREN{
+                yyerror("PAREN not match in function args declaration!\n");
             };
 
 decl_args : { $$ = new VariableList();

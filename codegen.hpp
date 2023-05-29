@@ -27,14 +27,14 @@ class CodeGenContext {
 public:
 
     llvm::Module *module; // store all functions and global variables
-    llvm::Function *cur_f;
-    bool has_return;
-    llvm::Value* ret_val=nullptr;
-    std::vector<llvm::BasicBlock*> break_stack;
-    std::string filename;
-    llvm::BasicBlock* ret_bb;
-    llvm::Function* printf;
-    llvm::Function* scanf;
+    llvm::Function *cur_f; // indicate the current function
+    bool has_return; // indicate whether there has already been a return statement in certain block
+    llvm::Value* ret_val=nullptr; //record the return value
+    std::vector<llvm::BasicBlock*> break_stack; // record the start place of certain block containing break
+    std::string filename; // the target file to store the generated llvm IR representation
+    llvm::BasicBlock* ret_bb; // return block of a function
+    llvm::Function* printf; // printf function prototype
+    llvm::Function* scanf;  // scanf function prototype
 
     CodeGenContext(std::string filename): filename(filename) {
         module = new llvm::Module("main", global_ctx);

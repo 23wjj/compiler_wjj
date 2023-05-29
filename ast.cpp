@@ -102,6 +102,7 @@ Value *String::CodeGen(CodeGenContext &ctx) {
 
 Value *Identifier::CodeGen(CodeGenContext &ctx) {
     std::cout << "Identifier : " << name << std::endl;
+    // find the variable in the symbol table of current context
     Value *var = ctx.find_var(name);
     if (var == nullptr) {
         throw std::logic_error("undeclared variable!" + name +"\n");
@@ -268,8 +269,15 @@ Value* FunctionCall::CodeGen(CodeGenContext &ctx) {
 
     // calculate arg value of the passing parameters
     std::vector<Value*> args_list;
-    for (auto ite : args)
-        args_list.push_back((*ite).CodeGen(ctx));
+    auto func_arg = func->arg_begin();
+    for (auto ite : args) {
+        auto val=(*ite).CodeGen(ctx);
+        if(val->getType()!=func_arg->getType()){
+            throw std::logic_error("function arg type not match\n");
+        }
+        func_arg++;
+        args_list.push_back(val);
+    }
 
     CallInst* call = CallInst::Create(func, makeArrayRef(args_list), id.name, builder.GetInsertBlock());
     std::cout << "function call "<<id.name<<std::endl;
@@ -519,6 +527,7 @@ Value* ArrayAssignment::CodeGen(CodeGenContext &ctx) {
     std::vector<Value*> idx_list;
     idx_list.push_back(builder.getInt32(0));
     idx_list.push_back(idx);
+    // get the value of the array element
     Value* lhs = builder.CreateInBoundsGEP(val->getType()->getPointerElementType(), val,
                                            ArrayRef<Value* >(idx_list), "tmparray");
     std::cout<<typeid(_exp).name()<<std::endl;
